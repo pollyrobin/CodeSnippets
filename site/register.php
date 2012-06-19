@@ -75,7 +75,7 @@ if(isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email']))
 
 }
 else{
-	echo "This might not be a register session :D";
+	echo "Something went wrong, please try to register again. If this problem persists notify the admin";
 }
 ?>
 		</div>

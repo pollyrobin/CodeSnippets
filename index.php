@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SERVER);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -52,27 +51,22 @@ var_dump($_SERVER);
 
 <div class="container">
 	<div class="row">
-		<?php if (isset($_SERVER) )?>
 		<div class="span8">
 			<div class="page-header">
   				<h1>Yay wat een mooie login hier --></h1>
 			</div>
 		</div>
-		<?php include_once('site/login-signup.php')?>
+		<?php if (isset($_SERVER) ) {
+			include_once('site/login-signup.php');
+		}?>
 	</div>
 </div>
-
-
-
-
-
-			<!--
-
-
-			<textarea name="code" class="php" cols="60" rows="10">
+			
+	
+			<!--<textarea name="code" class="php" cols="60" rows="10">
 			<?php 
-				echo "code"; 
-				$arr = array("blaat" => "test", "test" => "blaat");   
+				//echo "code"; 
+				//$arr = array("blaat" => "test", "test" => "blaat");   
 			?>
 			</textarea>-->
 <script language="javascript">
