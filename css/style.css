@@ -38,3 +38,8 @@ margin-left:4px;
 display:inline-block;
 }
 
+.login-warnings{
+min-width:242px;
+float:left;
+margin-bottom:10px;
+}

@@ -1,7 +1,5 @@
 <?php
-session_start();
 include_once("../script/db/DbConnectClass.php");
-if (isset($_SESSION['user'])) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -31,41 +29,57 @@ if (isset($_SESSION['user'])) {
 			<ul class="nav">
 				<li class="active"><a href="#">Home</a></li>
 			</ul>
-			<ul class="nav pull-right">
-				<li><span class="navbar-text">Logged in as: <a href="#"></a></span></li>
-			  	<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<?php echo $_SESSION['user']; ?>
-						<b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-					  <li><a href="#">Linklike</a></li>
-					  <li><a href="#">userprofile</a></li>
-					  <li><a href="/CodeSnippets/site/logout.php">Logout</a></li>
-					</ul>
-			  	</li>
-			</ul>
 		</div>
   	</div>
 </div>
 <div class="container">
 	<div class="row">
-		<div class="span12">
+		<div class="span8">
 			<div class="page-header">
-  				<h2>LOGGED IN AREA :D</h2>
+  				<h2>Register</h2>
 			</div>
 		</div>
+		<?php include_once('login-signup.php')?>
 	</div>
 	<div class="row">
 		<div class="span12">
-			Welcome <?php echo $_SESSION['user']; ?> 
+
+<?php
+if(isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])){
+
+	$db = new DbConnect('codesnippets');	
+	
+	$username =  strip_tags(mysql_real_escape_string($_POST['name']));
+	$password = strip_tags(mysql_real_escape_string($_POST['password']));
+	$email = strip_tags(mysql_real_escape_string($_POST['email']));
+	$salt = '$2a$07$yaywhatagreatsalthash$';
+	$encryptedPass = crypt($password,$salt);
+
+	$existquery = "SELECT username, email
+				   FROM users 
+				   WHERE username = '".$username."' 
+				   		OR email = '".$email."'";
+	$rows = mysql_num_rows($db->Query($existquery));	
+	if($rows != 0){
+		echo "for some reason your username of email is already in use \n please fill in the form again";
+	}else{
+		$query = "INSERT INTO users VALUES('','".$username."','".$encryptedPass."', '".$email."',0)";
+		$db->Query($query);
+	?>
+		<div class="register-message">
+			You have succesfully created an account.
+			You might get a welcome email or such with a validation link.
+		</div>
+	<?php
+	}
+
+}
+else{
+	echo "This might not be a register session :D";
+}
+?>
 		</div>
 	</div>
 </div>
 </body>
 </html>
-<?php
-} else {
-	header('Location: /CodeSnippets/site/register.php');
-}
-?>

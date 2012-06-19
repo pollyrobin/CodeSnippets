@@ -11,7 +11,12 @@ $(function(){
 			user: user,
 			password: password
 		}, function(validate_credentials) {
-			$('#login-warnings').html(validate_credentials);
+			if (validate_credentials != 'You\'re credentials have been accepted'){
+				$('#login-warnings').html(validate_credentials);
+				$('#login-warnings').addClass('login-warnings alert alert-error');
+			} else {
+				window.location = '/CodeSnippets/site/page.php';
+			}
 		});	
 	});
 });
