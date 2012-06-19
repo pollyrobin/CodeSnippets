@@ -1,14 +1,16 @@
-$(document).ready(function(){
-	$.ajaxSetup({
-		cache: false
-	});
-function signUp(email, password){
-	$('#email-input').val(email);
+function signUp(user, password){
+	var isemail = user.search('@');
+	console.log(isemail);
+	if (isemail != -1)	{
+		$('#email-input').val(user);
+	} else {
+		$('#name-input').val(user);
+	}
 	$('#password-input').val(password);
 }
 
 function nameValidation(name_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		name_input: name_input
 	}, function(validate_name) {
 		var alertcolor = "alert-error";
@@ -22,7 +24,7 @@ function nameValidation(name_input){
 }
 
 function emailValidation(email_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		email_input: email_input
 	}, function(validate_email) {
 		var alertcolor = "alert-error";
@@ -35,7 +37,7 @@ function emailValidation(email_input){
 } 
 
 function emailChange(email_verify_input, email_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		email_verify_input: email_verify_input,
 		email_input: email_input
 	}, function(validate_verify_email) {
@@ -49,7 +51,7 @@ function emailChange(email_verify_input, email_input){
 }
 
 function emailVerifyValidate(email_verify_input, email_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		email_verify_input: email_verify_input,
 		email_input: email_input
 	}, function(validate_verify_email) {
@@ -63,7 +65,7 @@ function emailVerifyValidate(email_verify_input, email_input){
 }
 
 function passwordValidate(password_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		password_input: password_input
 	}, function(validate_password) {
 		var alertcolor = "alert-error";
@@ -89,7 +91,7 @@ function passwordValidate(password_input){
 }
 
 function passwordVerify(password_input, password_verify_input){
-	$.post('/codesnippets/script/validate/validate.php', {
+	$.post('/CodeSnippets/script/validate/validate.php', {
 		password_input: password_input,
 		password_verify_input: password_verify_input
 	}, function(validate_verify_password) {
@@ -100,7 +102,12 @@ function passwordVerify(password_input, password_verify_input){
 		$('#password-verify-validate').html(validate_verify_password);
 		$('#password-verify-validate').attr('class', 'alert ' + alertcolor);
 	});
-}	
+}
+$(function(){
+	$.ajaxSetup({
+		cache: false
+	});
+	
 	//Copy values to new form
 	$('#sign-up').click(function(){
 		var email = $('#sign-up-email').val();
@@ -173,7 +180,7 @@ function passwordVerify(password_input, password_verify_input){
 		var password_input = $('#password-input').val();
 		var password_verify_input = $('#password-verify-input').val();
 
-		$.post('/codesnippets/script/validate/validate.php', {
+		$.post('/CodeSnippets/script/validate/validate.php', {
 			form_submit: form_submit,
 			name_input: name_input,
 			email_verify_input: email_verify_input,

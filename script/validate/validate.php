@@ -1,5 +1,5 @@
 <?php
-include("/var/www/codesnippets/script/validate/Validator.php");
+include("Validator.php");
 $Validator = new Validator();	
 
 if(isset($_POST['form_submit'])){

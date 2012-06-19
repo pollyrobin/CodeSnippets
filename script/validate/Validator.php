@@ -1,25 +1,35 @@
 <?php
 Class Validator
 {
-	public function ValidateName($name, $fullform)
+	public function ValidateName($username, $fullform)
 	{
-		if($name == ""){
+		if ($username != "") {
+			include_once('../db/DbConnectClass.php');
+			$db = new DbConnect('codesnippets');	
+			$username = strip_tags(mysql_real_escape_string($username));
+			$query = "SELECT * FROM users WHERE username = '".$username."'";
+			$result = $db->Query($query);
+			
+			if (mysql_num_rows($result) > 0) {
+				$return = "Username already in use";
+				$returncode = 0;
+			} elseif (strlen($username) < 2) {
+				$return = "Im certain your name is longer";
+				$returncode = 0;
+			} elseif (preg_match_all("/[^a-zA-Z0-9]/",$username, $matched_preg)!== 0) {
+				$return = "please use only letters & cijfers";
+				$returncode = 0;
+			} else {
+				$return = "Way to go";
+				$returncode = 1;
+			}
+		} else {	
 			$return = "You have no name?";
 			$returncode = 0;
 		}
-		elseif(strlen($name) < 2){
-			$return = "Im certain your name is longer";
-			$returncode = 0;
-		}elseif(preg_match_all("/[^a-zA-Z]/",$name, $matched_preg)!== 0){
-			$return = "please use only letters";
-			$returncode = 0;
-		}else{
-			$return = "Way to go";
-			$returncode = 1;
-			}
-		if($fullform == 0){
+		if ($fullform == 0) {
 			return $return;
-		}else{
+		} else {
 			return $returncode;
 		}
 	}
@@ -30,7 +40,7 @@ Class Validator
 			$return = "Everyone has an email address";
 			$returncode = 0;
 		}elseif(preg_match("~^[a-z0-9][a-z0-9_.\-]*@([a-z0-9]+\.)*[a-z0-9][a-z0-9\-]+\.([a-z]{2,6})$~i", $email) == 1){	
-			include('/var/www/codesnippets/script/db/DbConnectClass.php');
+			include_once('../db/DbConnectClass.php');
 			$db = new DbConnect('codesnippets');	
 			$email = strip_tags(mysql_real_escape_string($email));
 			$query = "SELECT * FROM users WHERE email = '".$email."'";
