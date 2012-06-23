@@ -8,6 +8,7 @@ if (isset($_SESSION['user'])) {
 <head>
 <title>Codesnippets</title>
 <?php include_once('../templates/header.php'); ?>
+
 </head>
 <body>
 <?php include_once('../templates/nav.php'); ?>
@@ -26,10 +27,10 @@ if (isset($_SESSION['user'])) {
 	</div>
 	<div class="row">
 		<div class="span8">
-			<form>
+			hierzo code plus uitleg
 		</div>
 		<div class="span4">
-			<?php include_once('../templates/sidebar.php'); ?>
+		<?php include_once('../templates/sidebar.php')?>
 		</div>
 	</div>
 </div>
