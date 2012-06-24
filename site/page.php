@@ -59,6 +59,8 @@ if (isset($_SESSION['user'])) {
 	<div class="row">
 		<div class="span12">
 			Welcome <?php echo $_SESSION['user']; ?> 
+			links  <---- overzicht van de code post blog whatever 
+			rechts ----> overzicht van de verschillende opties die de gebruiker heeft ala   talen en dergelijke
 		</div>
 	</div>
 </div>

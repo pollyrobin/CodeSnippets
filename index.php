@@ -27,11 +27,11 @@ session_start();
 	<div class="navbar-inner">
 		<div class="container">
 			<ul class="nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="/CodeSnippets/">Home</a></li>
 			</ul>
 			<?php if (isset($_SESSION['user']) ) { ?>
 			<ul class="nav pull-right">
-				<li><span class="navbar-text">Logged in as: <a href="#"></a></span></li>
+				<li><span class="navbar-text">Logged in as: </span></li>
 			  	<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php echo $_SESSION['user']; ?>
