@@ -5,22 +5,7 @@ include_once("../script/db/DbConnectClass.php");
 <html>
 <head>
 <title>Codesnippets</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<link type="text/css" rel="stylesheet" href="../css/SyntaxHighlighter.css"></link>
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css"></link>
-<link type="text/css" rel="stylesheet" href="../css/style.css"></link>
-
-<script language="javascript" src="../script/jquery-1.7.2.min.js"></script>
-<script language="javascript" src="../script/bootstrap.js"></script>
-<script language="javascript" src="../script/validate/validate.js"></script>
-<script language="javascript" src="../script/login/login.js"></script>
-<script language="javascript" src="../script/codebrowser/shCore.js"></script>
-<script language="javascript" src="../script/codebrowser/shBrushCss.js"></script>
-<script language="javascript" src="../script/codebrowser/shBrushJScript.js"></script>
-<script language="javascript" src="../script/codebrowser/shBrushPhp.js"></script>
-<script language="javascript" src="../script/codebrowser/shBrushXml.js"></script>
-<script language="javascript" src="../script/codebrowser/shBrushSql.js"></script>
+<?php include_once('../templates/header.php'); ?>
 </head>
 <body>
 <div class="navbar navbar-fixed-top">

@@ -8,6 +8,7 @@ if (isset($_SESSION['user'])) {
 <head>
 <title>Codesnippets</title>
 <?php include_once('../templates/header.php'); ?>
+
 </head>
 <body>
 <?php include_once('../templates/nav.php'); ?>
@@ -25,18 +26,11 @@ if (isset($_SESSION['user'])) {
 		</div>
 	</div>
 	<div class="row">
-<<<<<<< HEAD
-		<div class="span12">
-			Welcome <?php echo $_SESSION['user']; ?> 
-			links  <---- overzicht van de code post blog whatever 
-			rechts ----> overzicht van de verschillende opties die de gebruiker heeft ala   talen en dergelijke
-=======
 		<div class="span8">
-			<form>
+			hierzo code plus uitleg
 		</div>
 		<div class="span4">
-			<?php include_once('../templates/sidebar.php'); ?>
->>>>>>> 161b7a04aad995f27f57ab13f3ea73ae00c04efc
+		<?php include_once('../templates/sidebar.php')?>
 		</div>
 	</div>
 </div>
