@@ -7,7 +7,7 @@ session_start();
 <title>Codesnippets</title>
 <?php include_once('templates/header.php'); ?>
 </head>
-<body>
+<body onload="prettyPrint()">
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
@@ -41,20 +41,22 @@ session_start();
   				<h1>Yay wat een mooie login hier --></h1>
 			</div>
 		</div>
-		<?php if (isset($_SERVER) ) {
+		<?php if (isset($_SESSION['user']) ) {
+			include_once('templates/sidebar.php');
+		} else {
 			include_once('site/login-signup.php');
-		}?>
+		}
+		?>
 	</div>
 	<div class="row">
 		<div class="span8">
-			<textarea name="code" class="sql" cols="60" rows="10">
-			&lt;?php
-				echo "code"; 
-				$arr = array("blaat" => "test", "test" => "blaat");   
+			<pre class="prettyprint linenums">&lt;?php
+	echo "code"; 
+	$arr = array("blaat" => "test", "test" => "blaat");   
 
-				SELECT blabla FROM je moeder WHERE 1= '2'
-			?&gt;
-			</textarea>
+	SELECT blabla FROM je moeder WHERE 1= '2'
+?&gt;
+			</pre>
 		</div>
 		<div class="span4">
 
@@ -62,12 +64,6 @@ session_start();
 	</div>
 
 </div>
-			
-	
-			
-<script language="javascript">
-dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
-dp.SyntaxHighlighter.HighlightAll('code');
-</script>
+
 </body>
 </html>

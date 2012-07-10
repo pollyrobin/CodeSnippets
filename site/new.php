@@ -7,8 +7,10 @@ if (isset($_SESSION['user'])) {
 <html>
 <head>
 <title>Codesnippets</title>
-<?php include_once('../templates/header.php'); ?>
-
+	<?php include_once('../templates/header.php'); ?>
+	<link rel="stylesheet" type="text/css" href="../css/wmd.css" />
+	<script type="text/javascript" src="../script/wdm/showdown.js"></script>
+	<script type="text/javascript" src="../script/new.js"></script>
 </head>
 <body>
 <?php include_once('../templates/nav.php'); ?>
@@ -28,12 +30,30 @@ if (isset($_SESSION['user'])) {
 	<div class="row">
 		<div class="span8">
 			hierzo code plus uitleg
+			<form method="post" action="add-new.php">
+				<label>Title</label>
+				<input type="text" name="title"/>
+				<div id="wmd-button-bar"></div>
+				<br/>
+				<textarea name="" id="wmd-input"></textarea>
+				<br/>
+				<span>Preview</span>
+				<div id="wmd-preview"></div>
+				<br/>
+				Visible for ?<br />
+				<select name="visibility">
+					<option value="private">Private</option>
+					<option value="public">Public</option>
+					<option value="share">Share with:</option>
+				</select><br />
+				tags (comma separeted list)<br />
+				<input type="text" name="tags"/>
+			</form>
 		</div>
-		<div class="span4">
 		<?php include_once('../templates/sidebar.php')?>
-		</div>
 	</div>
 </div>
+<script type="text/javascript" src="../script/wdm/wmd.js"></script>
 </body>
 </html>
 <?php
