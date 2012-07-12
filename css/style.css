@@ -43,3 +43,16 @@ min-width:242px;
 float:left;
 margin-bottom:10px;
 }
+
+/** Especially intended for the new post form **/
+.sharewith{
+margin-left:10px;
+}
+.icon-edit{
+vertical-align:baseline;
+margin-left:5px;
+cursor:pointer;
+}
+.share-with-container{
+display:block;
+}

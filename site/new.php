@@ -44,10 +44,13 @@ if (isset($_SESSION['user'])) {
 				<select name="visibility">
 					<option value="private">Private</option>
 					<option value="public">Public</option>
-					<option value="share">Share with:</option>
 				</select><br />
-				tags (comma separeted list)<br />
-				<input type="text" name="tags"/>
+				<span>Share with:</span></br>
+				<span class="share-with-container">
+					<input type="text" name="share-with[]" placeholder="username or email" /><i id="add-share" class="icon-plus-sign icon-edit"> </i>
+				</span>
+				<span>tags (comma separeted list)<br /></span>
+				<input type="text" name="tags"/><span>&nbsp;</span>
 			</form>
 		</div>
 		<?php include_once('../templates/sidebar.php')?>
