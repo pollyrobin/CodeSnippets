@@ -16,6 +16,12 @@ $(function() {
 		$(this).parent().remove();
 		if ( $('.icon-plus-sign').length == 0 ) {
 			$('.icon-remove-sign').last().after('<i id="add-share" class="icon-plus-sign icon-edit"> </i>');
+			
 		}
+		if ( $('.icon-remove-sign').length == 1){
+			$('.icon-remove-sign').remove();
+		}
+		
+		
 	});
 });
