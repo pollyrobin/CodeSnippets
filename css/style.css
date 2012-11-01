@@ -1,3 +1,4 @@
+/** Default page layout **/
 body{
 padding-top:90px;
 }
@@ -18,7 +19,7 @@ text-align:left;
 
 .alert{
 float:right;
-min-width:205px;
+min-width:202px;
 display:inline-block;
 padding:4px 8px 4px 8px; 
 margin-bottom:0px;
@@ -44,6 +45,8 @@ float:left;
 margin-bottom:10px;
 }
 
+/** End default page layout main page **/
+
 /** Especially intended for the new post form **/
 .sharewith{
 margin-left:10px;
@@ -56,3 +59,41 @@ cursor:pointer;
 .share-with-container{
 display:block;
 }
+
+.share-alert{
+float:none;
+margin-bottom:10px;
+}
+
+#wmd-input{
+min-width:610px;
+}
+
+.blue-shadow {
+border-color: rgba(82, 168, 236, 0.8) !important;
+border-bottom:0px solid !important;
+-webkit-box-shadow: inset 0 0px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+outline: 0;
+outline: thin dotted \9;
+-webkit-border-radius: 3px 3px 0 0 !important;
+-moz-border-radius: 3px 3px 0 0 !important;
+border-radius: 3px 3px 0 0 !important;
+}
+.token-input-list-facebook{
+
+display: inline-block;
+width: 218px;
+height: 18px;
+padding: 0px;
+margin: 0px 0px 9px 0px;
+font-size: 13px;
+line-height: 18px;
+color: #555555;
+border: 1px solid #cccccc;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+/** next part = ?? **/
