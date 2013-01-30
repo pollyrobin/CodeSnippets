@@ -65,7 +65,8 @@ if (isset($_SESSION['user'])) {
 					</script>
 			</form>
 		</div>
-		<?php include_once('../templates/sidebar.php')?>
+		<?php include_once('../templates/sidebar.php');	?>
+	
 	</div>
 </div>
 <script type="text/javascript" src="../script/wdm/wmd.js"></script>
@@ -73,6 +74,6 @@ if (isset($_SESSION['user'])) {
 </html>
 <?php
 } else {
-	header('Location: /CodeSnippets/site/register.php');
+	header('Location: /CodeSnippets/index.php');
 }
 ?>

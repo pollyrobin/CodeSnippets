@@ -39,6 +39,6 @@ if (isset($_SESSION['user'])) {
 </html>
 <?php
 } else {
-	header('Location: /CodeSnippets/site/register.php');
+	header('Location: /CodeSnippets/index.php');
 }
 ?>
